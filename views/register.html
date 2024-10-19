@@ -2,13 +2,17 @@
 
   <h1>Register</h1>
 
+  <h4 id="register-other-error" class="error"></h4>
+  <h4 id="register-account-created" class="success"></h4>
+
   <form id="formRegister">
 
+    <p id="register-username-taken" class="error"></p>
     <label for="username">Username</label>
-    <input id="username" type="text" required>
+    <input id="username" type="text" name="username" required>
 
     <label for="password">Password</label>
-    <input id="password" type="password" required>
+    <input id="password" type="password" name="password" required>
 
     <button type="submit">Register</button>
 
