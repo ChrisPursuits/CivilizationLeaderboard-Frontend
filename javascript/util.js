@@ -55,3 +55,18 @@ export function makeAuthOption(httpMethod, body, token) {
 
     return option;
 }
+
+
+
+
+
+export function getDecodedToken() {
+
+    const token = localStorage.getItem("jwtToken");
+    const decodedToken = jwt_decode(token);
+    if (!token) {
+        return null;
+    }
+
+    return decodedToken;
+}
