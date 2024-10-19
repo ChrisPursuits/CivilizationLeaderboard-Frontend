@@ -4,35 +4,28 @@ function initializeViewNavigation() {
 }
 
 function handleViewChange() {
-    let defaultView = "#home"; // default view
+    let view = "login"; // default view
 
     if (location.hash) {
-        defaultView = location.hash; // extract the hash from the URL
+        view = location.hash.substring(1); // extract the hash from the URL
     }
 
-    hideAllViews();
-
-    // Set the selected view to active
-    document.querySelector(defaultView).classList.add("active");
-    updateNavbarActiveLink(defaultView); // update active link in navbar
+    initializeView(view)
 }
 
-function updateNavbarActiveLink(view) {
-    // Set the corresponding navbar link to active
-    const navbarLink = document.querySelector(`a.view-link[href="${view}"]`); // Get navbar element with href equal to view
-    if (navbarLink) {
-        navbarLink.classList.add("active"); // Add active class to the navbar element
+
+async function initializeView(view) {
+    const app = document.getElementById("app");
+
+    try {
+        const response = await fetch(`/views/${view}.html`);
+        const selectedView = await response.text();
+
+        app.innerHTML = selectedView
+    }catch (error) {
+        console.error(error)
+        app.innerHTML = `<p> Could not load view: ${view}</p>`
     }
 }
 
-function hideAllViews() {
-    // Remove 'active' class from all views and nav links
-    document
-        .querySelectorAll(".view-content")
-        .forEach(content => content.classList.remove("active"));
-    document
-        .querySelectorAll(".view-link")
-        .forEach(link => link.classList.remove("active"));
-}
-
-export { initializeViewNavigation };
+export {initializeViewNavigation};
