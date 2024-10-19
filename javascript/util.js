@@ -70,3 +70,18 @@ export function getDecodedToken() {
 
     return decodedToken;
 }
+
+
+
+
+
+export function NavbarComponent() {
+    return `
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#user-game-history">Game History</a>
+        <a href="#account" style="margin-left: auto"><!--  TODO username goes here (make sure the username is located in the left corner)  --></a>
+    </nav>
+`
+}
