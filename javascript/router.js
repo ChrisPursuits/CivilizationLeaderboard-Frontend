@@ -1,4 +1,6 @@
 import {initRegisterScript} from "./register.js";
+import {initLoginScript} from "./login.js";
+import {initHomeScript} from "./home.js";
 
 function initializeViewNavigation() {
     window.addEventListener("hashchange", handleViewChange);
@@ -55,6 +57,10 @@ function initializeCorrespondingScript(view) {
             break;
         }
 
+        case "home": {
+            initHomeScript();
+            break;
+        }
         default: throw new Error(`The view: ${view} does not exist/have a apparent script`)
     }
 
