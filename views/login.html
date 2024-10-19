@@ -1,19 +1,22 @@
 <section id="login">
 
-  <h1>Login</h1>
+    <h1>Login</h1>
 
-  <form id="formLogin">
+    <p id="login-wrong-credentials" class="error"></p>
+    <form id="formLogin">
 
-    <label for="username">Username</label>
-    <input id="username" type="text" required>
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" required>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" required>
 
-    <button type="submit">Login</button>
+        <button type="submit">Login</button>
 
-  </form>
+    </form>
 
-  <a href="#register">Create an account</a>
-
+    <span>
+        <a href="#register">Create an account</a>
+        <a href="#rest-password">Forgot password</a>
+     </span>
 </section>
